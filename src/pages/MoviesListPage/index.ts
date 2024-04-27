@@ -1,1 +1,1 @@
-export { MoviesListPage } from "./MoviesListPage";
+export { MoviesListPageLazy as MoviesListPage } from "./MoviesListPage.lazy";

@@ -1,1 +1,1 @@
-export { MoviePage } from "./MoviePage";
+export { MoviePageLazy as MoviePage } from "./MoviePage.lazy";

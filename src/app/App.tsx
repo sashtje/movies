@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
 import { app } from "./App.module.scss";
@@ -13,13 +14,15 @@ export const App = () => {
       <Link to={"/"}>Main Page</Link>
       <Link to={"/about"}>About Page</Link>
       <Link to={"/movies"}>Movies List Page</Link>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/movies/" element={<MoviesListPage />} />
-        <Route path="/movies/:id/" element={<MoviePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/movies/" element={<MoviesListPage />} />
+          <Route path="/movies/:id/" element={<MoviePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 };
